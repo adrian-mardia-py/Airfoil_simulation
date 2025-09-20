@@ -172,7 +172,7 @@ def main(perfil: np.float32, alfa: np.float32 = 0) -> None:
     #numVortices = 60
     cuerda = 3
 
-    numVortices = int(input("\nEnter the number of vortices to place along the airfoil chord --> "))
+    numVortices = int(input("\nEnter the number of vortices to place along the airfoil chord (Normally like 50) --> "))
     
     x = np.linspace(-4, 4, 2000).astype(np.float32)
     y = np.linspace(-4, 4, 2000).astype(np.float32)
