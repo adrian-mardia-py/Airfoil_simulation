@@ -1,0 +1,46 @@
+
+ --------------- RUNNING PROGRAM ---------------
+
+Enter the number of vortices to place along the airfoil chord --> 50
+
+Meshes created successfully
+
+ --------------- COMPUTING CIRCULATION ---------------
+
+Circulation distribution along the chord:
+
+[39.603058  79.206116  55.34035   44.756847  38.486618  34.261993
+ 31.202614  28.884289  27.073301  25.628376  24.458073  23.5
+ 22.70972   22.054472  21.50935   21.05494   20.675749  20.359161
+ 20.094704  19.873524  19.68802   19.53156   19.398256  19.282814
+ 19.180393  19.086508  18.99693   18.907625  18.814682  18.714245
+ 18.602465  18.475437  18.329136  18.159348  17.96159   17.731014
+ 17.462288  17.14943   16.785608  16.36284   15.87158   15.300082
+ 14.633431  13.851913  12.928137  11.821419  10.46536    8.734168
+  6.3120914  0.       ]
+
+ --------------- COMPUTING STREAM FUNCTION ---------------
+
+GPU memory usage:
+
+-Threads per block (16, 16, 4)
+--Total 1024 threads
+
+-Blocks per grid (125, 125, 13)
+--Total: 203125 blocks
+
+Matrix size (2000, 2000, 50)
+--Total: 200000000 elements per matrix
+
+Operations completed in 1.73 seconds
+
+ --------------- CREATING CONTOUR PLOT ---------------
+
+Contour plot created in 4.40 seconds
+
+
+Do you want to save the data matrix? (yes/no): yes
+
+ --------------- SAVING DATA ---------------
+
+ --------------- PROGRAM FINISHED SUCCESSFULLY ---------------

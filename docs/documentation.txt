@@ -1,0 +1,107 @@
+
+ --------------- FUNCIONCORRIENTE ---------------
+
+    Parameters
+    ----------
+    Tr -> Real coordinate mesh
+
+    Ti -> Imaginary coordinate mesh
+
+    Ci -> Imaginary solution mesh
+
+    D -> Solution mesh
+
+    rango -> Vortex positions
+
+    gamma -> Circulation at each point
+
+
+    Returns
+    -------
+    None
+
+    Considerations
+    ---------------
+    All units and arrays must be of type np.float32, works best with Numba
+
+    Function
+    -------
+    Using the GPU in parallel, creates a matrix with the values of the stream function at each point
+
+
+ --------------- CIRCULACION ---------------
+
+    Parameters
+    ----------
+    dPerfil -> Airfoil derivative polynomial coefficients
+
+    z -> Position of each vortex
+
+
+    Returns
+    --------
+    Array with circulation at each vortex ---> np.float32
+
+    Considerations
+    ---------------
+    - Fourier coefficients computed for a cubic airfoil polynomial (before differentiation)
+    - Alpha in radians
+    - At the leading edge, a singularity (infinite vorticity) occurs. It has been approximated, but as a result some streamlines cross the airfoil.
+      v2 -> Circulation at the leading edge is approximated as half of the previous value, according to *Potential Aerodynamics*. Being an integrable
+            singularity with zero integral, it has no effect on resulting forces and/or moments.
+
+    Function
+    -------
+    Creates a discrete circulation distribution for each vortex along the airfoil
+
+
+ --------------- MAIN ---------------
+
+    Parameters
+    ----------
+    perfil -> Polynomial coefficients of the airfoil to analyze
+
+    Returns
+    --------
+    None
+
+    Function
+    ---------------
+    Plots the contour of the streamlines around the input airfoil
+
+
+ --------------- PRUEBASCURVASNIVEL ---------------
+
+Module:
+------
+Allows creating and determining the number of evaluations needed for the matrix
+created in the program FlujoAlrededorPerfil.py
+
+Functions:
+----------
+contornoPerfil()
+
+Considerations:
+---------------
+It is necessary to save the matrix when running FlujoAlrededorPerfil.py
+
+
+ --------------- CONTORNOPERFIL ---------------
+
+    Parameters:
+    ----------
+    D -> Matrix containing the stream function
+
+    X, Y -> Coordinate matrices
+
+    niveles -> number of evaluations to be performed in each of the three contour zones
+
+
+    Returns:
+    --------
+    None
+
+    Function:
+    ---------
+    Creates the contour plot of the airfoil with a higher density of lines
+    in the region near the plate
